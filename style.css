@@ -1,0 +1,71 @@
+body{
+    background-color: rgba(90, 128, 218, 0.986);
+    
+}
+
+
+.contenedor {
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    height: calc(100vh - 4vw); 
+    width: calc(100vw - 4vw);
+    gap: 2vw; 
+    padding: 1vw; 
+    
+}
+
+.cuadrado {
+    box-sizing: border-box; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr); 
+    gap: 2vw;
+    width: 37vw;
+    height: 37vw;
+    border: 1px solid whitesmoke;
+    padding: 2vw;
+    
+    background: radial-gradient(circle at center,white, rgb(243, 247, 254) 25%); 
+    
+}   
+
+.cuadrado > div {   
+    border: 1px solid whitesmoke;
+    display: flex;
+    justify-content: center;    
+    align-items: center;        
+    padding: 1em;       
+    background-color: rgba(159, 185, 246);
+}   
+
+.jugadores {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    padding: 4vw;
+    display: flex;
+    flex-direction: column; 
+    gap: 2vw;
+}
+
+.jugador {
+    font-size: xx-large;
+    font-family: consolas;
+    padding: 1em;
+    color: aliceblue;
+}
+
+#jugadorX, .celdaX {
+    text-shadow: 0 0 5px rgb(228, 13, 217);
+    color:rgb(255, 0, 242);
+}
+
+#jugadorO, .celdaO {
+    color: rgb(0, 255, 21);
+    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+}
+#celda1, #celda2, #celda3,#celda4, #celda5, #celda6,#celda7, #celda8, #celda9{
+    font-size: xx-large;
+    font-family: consolas;
+}
