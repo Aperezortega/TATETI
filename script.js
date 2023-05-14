@@ -1,3 +1,7 @@
+
+alert('Alberto Perez Ortega, 1DAM CENEC, TATETI')
+
+
 // Inicializar el tablero del juego como una matriz 3x3
 let tablero = [
     ['', '', ''],
@@ -13,6 +17,8 @@ let tablero = [
   // Inicializar el turno actual (X siempre comienza)
   let turnoActual = 'X';
   
+  // Inicializar el color del brillo
+  document.documentElement.style.setProperty('--brillo-color', 'rgb(255, 0, 242)');
   // Función para manejar los clics en las celdas
   function celdaClicada(evento) {
     // Obtener el id de la celda clicada
@@ -30,8 +36,14 @@ let tablero = [
     tablero[fila][columna] = turnoActual;
     
     // Actualizar el contenido de la celda en la página
-    document.getElementById(id).textContent = turnoActual;
+    //document.getElementById(id).textContent = turnoActual;
+    let celda = document.getElementById(id);
+    celda.textContent = turnoActual;
+
+    // Añadir la clase CSS correspondiente a la celda
+    celda.classList.add('celda' + turnoActual);
     
+
     // Comprobar si el turno actual ha ganado
     if (comprobarGanador(fila, columna)) {
       setTimeout(function(){
@@ -52,7 +64,17 @@ let tablero = [
     },100)
     }else{
       // Cambiar el turno
-      turnoActual = turnoActual === 'X' ? 'O' : 'X';
+      if(turnoActual === 'X') {
+        turnoActual = 'O';
+        document.documentElement.style.setProperty('--brillo-color', 'rgb(0, 255, 255)');
+        document.documentElement.style.setProperty('--borde-color', 'rgb(0, 255, 100)');
+      } else {
+        turnoActual = 'X';
+        document.documentElement.style.setProperty('--brillo-color', 'rgb(171,32,253)');
+        document.documentElement.style.setProperty('--borde-color', 'rgb(228, 13, 217)');
+
+     // turnoActual = turnoActual === 'X' ? 'O' : 'X';
+      }
     }
     
    
@@ -69,7 +91,10 @@ let tablero = [
       turnoActual = 'X';
       // Limpiar el contenido de las celdas en la página
       for (let i = 1; i <= 9; i++) {
-        document.getElementById('celda' + i).textContent = '';
+        let celda = document.getElementById('celda' + i);
+        celda.textContent = '';
+        // Eliminar las clases CSS de la celda
+        celda.classList.remove('celdaX', 'celdaO');
       }
     
     } else {

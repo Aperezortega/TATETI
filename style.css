@@ -1,8 +1,19 @@
-body{
+/*body{
     background-color: rgba(90, 128, 218, 0.986);
-    
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+*/
+:root {
+    --brillo-color: rgb(255, 255, 255);
+    --borde-color: rgb(255, 255, 255);
 }
 
+
+body {
+    background-color: #000;
+    border: 5px solid var(--borde-color);
+    box-shadow: 0 0 50px var(--brillo-color);
+}
 
 .contenedor {
     display: flex;
@@ -23,20 +34,20 @@ body{
     gap: 2vw;
     width: 37vw;
     height: 37vw;
-    border: 1px solid whitesmoke;
     padding: 2vw;
+    background-color: #000;
+    border: 5px solid var(--borde-color);
+    box-shadow: 0 0 50px var(--brillo-color);
     
-    background: radial-gradient(circle at center,white, rgb(243, 247, 254) 25%); 
     
 }   
 
 .cuadrado > div {   
-    border: 1px solid whitesmoke;
     display: flex;
     justify-content: center;    
     align-items: center;        
     padding: 1em;       
-    background-color: rgba(159, 185, 246);
+    background-color: rgb(255, 255, 255);
 }   
 
 .jugadores {
